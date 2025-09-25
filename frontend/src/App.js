@@ -7,7 +7,7 @@ function App() {
   const [question, setQuestion] = useState("");
   const [user, setUser] = useState(null);
 
-  // ✅ Check if user is logged in when app loads
+  //  Check if user is logged in when app loads
   useEffect(() => {
     axios
       .get("http://127.0.0.1:8000/me", { withCredentials: true })
@@ -28,12 +28,12 @@ function App() {
   }
   }, []);
 
-  // 🔹 Google Sign-In
+  //  Google Sign-In
   const handleGoogleLogin = () => {
     window.location.href = "http://127.0.0.1:8000/login"; // Backend handles redirect
   };
 
-  // 🔹 Upload PDF to backend
+  //  Upload PDF to backend
   const uploadPDF = async () => {
     if (!file) {
       alert("Please select a PDF first!");
@@ -48,14 +48,14 @@ function App() {
         withCredentials: true,
       });
 
-      alert("✅ PDF uploaded and processed!");
+      alert(" PDF uploaded and processed!");
     } catch (err) {
       console.error("Error uploading PDF:", err);
-      alert("❌ Upload failed!");
+      alert(" Upload failed!");
     }
   };
 
-  // 🔹 Ask a question to backend
+  //  Ask a question to backend
   const askQuestion = async () => {
     if (!question.trim()) return;
 
@@ -83,7 +83,7 @@ function App() {
       setQuestion("");
     } catch (err) {
       console.error("Error asking question:", err);
-      alert("❌ Failed to get answer!");
+      alert(" Failed to get answer!");
     }
   };
 
@@ -93,14 +93,14 @@ function App() {
       maxWidth: 600,
       margin: "auto",
       padding: 20,
-      background: "linear-gradient(135deg, #f9f9f9, #e6f0ff)", // 🔹 Background color
+      background: "linear-gradient(135deg, #f9f9f9, #e6f0ff)", //  Background color
       minHeight: "100vh",
       borderRadius: "10px",
     }}
   >
       <h2>NEURORAG</h2>
 
-      {/* 🔹 Auth Section */}
+      {/*  Auth Section */}
       {!user ? (
         <button
           onClick={handleGoogleLogin}
@@ -122,7 +122,7 @@ function App() {
         </div>
       )}
 
-      {/* 🔹 PDF Upload */}
+      {/*  PDF Upload */}
       <div style={{ marginBottom: 20 }}>
         <input
           type="file"
@@ -134,7 +134,7 @@ function App() {
         </button>
       </div>
 
-      {/* 🔹 Chat Messages */}
+      {/*  Chat Messages */}
       <div style={{ marginTop: 20, borderTop: "1px solid #ccc", paddingTop: 10 }}>
         {messages.map((m, i) => (
           <div key={i} style={{ marginBottom: 15 }}>
@@ -153,7 +153,7 @@ function App() {
         ))}
       </div>
 
-      {/* 🔹 Input Box */}
+      {/* Input Box */}
       <div style={{ marginTop: 20 }}>
         <input
           type="text"
