@@ -1,8 +1,8 @@
-# RAG Knowledge Retrieval System
+# NeuroRAG
 
 ## Overview
 
-This project is a **Retrieval-Augmented Generation (RAG) system** that allows users to upload documents, store their content in a vector database, and ask questions about the documents. Answers are generated using a large language model (LLM) grounded in the document content, with citations included.  
+NeuroRAG is a **Retrieval-Augmented Generation (RAG) system** that allows users to upload documents, store their content in a vector database, and ask questions about the documents. Answers are generated using a large language model (LLM) grounded in the document content, with citations included.  
 
 The system demonstrates a **full end-to-end workflow** from document ingestion to answer generation with caching and multi-tenant support.
 
