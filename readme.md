@@ -16,7 +16,7 @@ The system demonstrates a **full end-to-end workflow** from document ingestion t
 - **Answer Generation:** Uses an LLM (OpenAI GPT or Claude) to answer questions grounded in retrieved documents.  
 - **Caching:** Redis caches frequent queries and generated answers for faster performance.  
 - **Authentication & Multi-Tenancy:** Users log in via Google OAuth. Data is scoped per tenant.  
-- **Minimal Frontend:** Web interface for document upload and chat-style querying.  
+- **Frontend:** Web interface for document upload and chat-style querying.  
 - **Production-Ready Setup:** Docker Compose configuration for all services.
 
 ---
