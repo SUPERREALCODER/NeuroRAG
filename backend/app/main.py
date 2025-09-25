@@ -79,7 +79,7 @@ def get_current_user():
 class QuestionRequest(BaseModel):
     question: str
 
-# Helper: text chunking
+# text chunking
 def chunk_text(text, chunk_size=500, overlap=50):
     words = text.split()
     chunks, start = [], 0
@@ -89,7 +89,7 @@ def chunk_text(text, chunk_size=500, overlap=50):
         start += chunk_size - overlap
     return chunks
 
-# Helper: embeddings
+# embeddings
 def embed_text(texts):
     resp = openai.embeddings.create(model="text-embedding-3-small", input=texts)
     return [d.embedding for d in resp.data]
@@ -122,16 +122,16 @@ async def upload_pdf(file: UploadFile, db: Session = Depends(get_db), user: dict
 async def ask_question(req: QuestionRequest, db: Session = Depends(get_db), user: dict = Depends(get_current_user)):
     tenant_id = user["id"]
 
-    # 1️⃣ Check Redis cache
+    #  Check Redis cache
     cached = get_cached_answer(tenant_id, req.question)
     if cached:
         return {"answer": cached, "source": "cache"}
 
-    # 2️⃣ Embed query and search Qdrant
+    #  Embed query and search Qdrant
     query_vec = embed_text([req.question])[0]
     results = client.search(collection_name=COLLECTION_NAME, query_vector=query_vec, limit=3)
 
-    # 3. Build citations (fetch doc metadata from Postgres)
+    # Build citations 
     sources = []
     for r in results:
         doc_id = r.payload.get("doc_id")
@@ -144,7 +144,7 @@ async def ask_question(req: QuestionRequest, db: Session = Depends(get_db), user
                     "doc_id": doc.id
                 })
 
-    # 3️⃣ Filter by tenant (multi-tenant safety)
+    #  Filter by tenant 
     context_chunks = [r.payload["text"] for r in results if r.payload.get("doc_id") is not None]
 
     context = "\n\n".join(context_chunks)
