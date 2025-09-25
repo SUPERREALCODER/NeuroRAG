@@ -2,15 +2,35 @@
 __pycache__/
 *.py[cod]
 *$py.class
-
+*.pyd
+*.so
+*.egg
+*.egg-info/
+.eggs/
+dist/
+build/
+pip-wheel-metadata/
+*.log
 # Virtual environment
 venv/
 
 # Alembic
 alembic/versions/
 
-# VS Code settings (optional)
+# ---- Node / Frontend ----
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+dist/
+build/
+
+# ---- IDE / Editors ----
 .vscode/
+.idea/
+*.swp
+*.swo
 
 # Environment variables / config (optional)
 .env
@@ -33,3 +53,12 @@ htmlcov/
 
 # Pydantic and FastAPI compiled models
 *.msgpack
+
+
+# ---- Secrets ----
+*.pem
+*.key
+*.crt
+*.secret
+.env.local
+.env.*
