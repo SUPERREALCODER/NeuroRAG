@@ -19,19 +19,18 @@ from app.models import User
  
 # Load environment variables
 load_dotenv()
-openai.api_key = "openai-api-key"  # Replace with your OpenAI API key
-QDRANT_URL = "quadrant-url"  # Replace with your Qdrant URL
-QDRANT_API_KEY = "quadrant-api-key"  # Replace with your Qdrant API key
-COLLECTION_NAME = "pdf_chunks"
+openai.api_key = os.getenv("OPENAI_API_KEY")
+QDRANT_URL = os.getenv("QDRANT_URL")
+QDRANT_API_KEY = os.getenv("QDRANT_API_KEY")
+COLLECTION_NAME = os.getenv("COLLECTION_NAME")
 
-load_dotenv()
-GOOGLE_CLIENT_ID = "google-client-id"
-GOOGLE_CLIENT_SECRET = "google-client-secret"
-SESSION_SECRET = "session-secret-key"
-SERVER_URL =  "server-url"  # e.g., "http://localhost:8000"
+GOOGLE_CLIENT_ID = os.getenv("GOOGLE_CLIENT_ID")
+GOOGLE_CLIENT_SECRET = os.getenv("GOOGLE_CLIENT_SECRET")
+SESSION_SECRET = os.getenv("SESSION_SECRET")
+SERVER_URL = os.getenv("SERVER_URL")
 
-SECRET_KEY = "SECRET_KEY"
-ALGORITHM = "ALGORITHM"
+SECRET_KEY = os.getenv("SECRET_KEY")
+ALGORITHM = os.getenv("ALGORITHM")
     
 async def init_db():
     return await asyncpg.connect(
