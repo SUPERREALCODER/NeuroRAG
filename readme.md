@@ -78,8 +78,20 @@ SESSION_SECRET=your-session-secret
 SERVER_URL=http://localhost:8000
 SECRET_KEY=your-jose-secret
 ALGORITHM=HS256
-
+```
 ## 3. Install Python Dependencies
 
 ```bash
 pip install -r requirements.txt
+```
+## 4. Run Database Migrations
+
+```bash
+alembic upgrade head
+```
+
+## 5.Start the Backend
+
+```bash
+uvicorn app.main:app --reload --port 8000
+```
