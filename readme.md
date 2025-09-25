@@ -35,7 +35,8 @@ The system demonstrates a **full end-to-end workflow** from document ingestion t
 ---
 
 ## Architecture
-
+![Architecture Diagram](assets/architecture.png)
+![Architecture Diagram](assets/architecture2.png)
 **Workflow:**
 
 1. User uploads a document → stored in Postgres, processed for text extraction → embedded and indexed in Qdrant.  
@@ -79,26 +80,26 @@ SERVER_URL=http://localhost:8000
 SECRET_KEY=your-jose-secret
 ALGORITHM=HS256
 ```
-## 3. Install Python Dependencies
+### 3. Install Python Dependencies
 
 ```bash
 pip install -r requirements.txt
 ```
-## 4. Run Database Migrations
+### 4. Run Database Migrations
 
 ```bash
 alembic upgrade head
 ```
 
-## 5.Start the Backend
+### 5.Start the Backend
 
 ```bash
 uvicorn app.main:app --reload --port 8000
 ```
 
-### Frontend Setup (optional)
+## Frontend Setup (optional)
 
-## 1.Navigate to the frontend folder:
+### 1.Navigate to the frontend folder:
 
 ```bash
 cd frontend
