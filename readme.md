@@ -35,7 +35,7 @@ The system demonstrates a **full end-to-end workflow** from document ingestion t
 ---
 
 ## Architecture
-![Architecture Diagram](assets/architecture.png)
+![UserFlow Diagram](assets/architecture.png)
 ![Architecture Diagram](assets/architecture2.png)
 **Workflow:**
 
