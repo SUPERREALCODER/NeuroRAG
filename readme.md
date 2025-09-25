@@ -95,3 +95,33 @@ alembic upgrade head
 ```bash
 uvicorn app.main:app --reload --port 8000
 ```
+
+### Frontend Setup (optional)
+
+## 1.Navigate to the frontend folder:
+
+```bash
+cd frontend
+npm install
+npm run dev
+```
+### Docker Compose
+
+To run all services together (Postgres, Redis, Qdrant, Backend):
+```bash
+docker-compose up --build
+```
+
+## API Endpoints
+
+| Method | Endpoint | Description |
+|--------|---------|-------------|
+| POST   | `/upload_pdf/` | Upload PDF and index document |
+| POST   | `/ask/` | Ask a question, returns answer with sources |
+| GET    | `/login` | Redirect to Google OAuth login |
+| GET    | `/auth/google/secrets` | OAuth callback |
+| GET    | `/me` | Get logged-in user info |
+
+### License
+
+MIT License
