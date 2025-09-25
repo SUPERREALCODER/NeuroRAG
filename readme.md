@@ -61,7 +61,7 @@ The system demonstrates a **full end-to-end workflow** from document ingestion t
 ```bash
 git clone <repo-url>
 cd <repo-folder>
-
+```
 
 ### 2. Create a `.env` File
 
