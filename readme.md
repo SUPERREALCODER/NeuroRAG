@@ -124,7 +124,8 @@ docker-compose up --build
 | GET    | `/me` | Get logged-in user info |
 
 ### Demo Video
-[Watch the demo video](assets/DEMO.mp4)
+[![Watch the demo]](https://youtu.be/MY3qUbhj_BQ?si=8dpM-rsBH0ah_1CD)
+
 
 
 ### License
