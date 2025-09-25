@@ -123,6 +123,16 @@ docker-compose up --build
 | GET    | `/auth/google/secrets` | OAuth callback |
 | GET    | `/me` | Get logged-in user info |
 
+## Next Steps / Improvements
+1.Support multiple file uploads and types.
+
+2.Improve search relevance using hybrid methods or online resources.
+
+3.Add role-based access and permissions.
+
+4.Enhance frontend with source filtering and pagination.
+
+
 ### Demo Video
 [![Watch the demo]](https://youtu.be/MY3qUbhj_BQ?si=8dpM-rsBH0ah_1CD)
 
