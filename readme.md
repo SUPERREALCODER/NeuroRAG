@@ -26,13 +26,60 @@ The system demonstrates a **full end-to-end workflow** from document ingestion t
 - **Backend:** FastAPI  
 - **Database:** PostgreSQL + SQLAlchemy + Alembic  
 - **Caching:** Redis  
-- **Vector Database:** Qdrant (or alternative)  
+- **Vector Database:** Qdrant  
 - **Authentication:** Google OAuth 2.0  
-- **LLM Integration:** OpenAI / Claude  
-- **Frontend:** Minimal (React/Next.js or any stack)  
+- **LLM Integration:** OpenAI  
+- **Frontend:** React  
 - **Containerization:** Docker + Docker Compose  
 
 ---
 
 ## Architecture
 
+**Workflow:**
+
+1. User uploads a document → stored in Postgres, processed for text extraction → embedded and indexed in Qdrant.  
+2. User asks a question → query embedded → relevant chunks retrieved from Qdrant → answer generated using LLM.  
+3. Result returned with **citations** from the original documents.  
+4. Query + answer cached in Redis for future requests.
+
+---
+
+## Setup Instructions
+
+### Prerequisites
+
+- Python 3.11+  
+- Docker & Docker Compose  
+- Node.js & npm/yarn (for frontend)  
+- Access to OpenAI  API key  
+
+### Backend Setup
+
+1. Clone the repository:
+
+```bash
+git clone <repo-url>
+cd <repo-folder>
+
+
+### 2. Create a `.env` File
+
+Create a `.env` file based on `.env.example`:
+
+```env
+OPENAI_API_KEY=your-openai-key
+QDRANT_URL=http://localhost:6333
+QDRANT_API_KEY=
+COLLECTION_NAME=documents
+GOOGLE_CLIENT_ID=your-google-client-id
+GOOGLE_CLIENT_SECRET=your-google-client-secret
+SESSION_SECRET=your-session-secret
+SERVER_URL=http://localhost:8000
+SECRET_KEY=your-jose-secret
+ALGORITHM=HS256
+
+## 3. Install Python Dependencies
+
+```bash
+pip install -r requirements.txt
