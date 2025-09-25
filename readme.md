@@ -123,6 +123,10 @@ docker-compose up --build
 | GET    | `/auth/google/secrets` | OAuth callback |
 | GET    | `/me` | Get logged-in user info |
 
+### Demo Video
+[Watch the demo video](assets/DEMO.mp4)
+
+
 ### License
 
 MIT License
